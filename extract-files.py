@@ -45,6 +45,9 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'odm/bin/hw/vendor.oplus.hardware.biometrics.face@1.0-service_uff': blob_fixup()
+        .replace_needed('libcamera2ndk_vendor.so', 'libcamera2ndk_vendor-oplus.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'odm/etc/camera/CameraHWConfiguration.config': blob_fixup()
         # Expose AUX cameras
         .regex_replace('SystemCamera =  0;  0;  0;  0;  1;', 'SystemCamera =  0;  0;  0;  0;  0;'),
