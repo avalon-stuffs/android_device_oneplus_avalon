@@ -1827,8 +1827,39 @@ odm/firmware/ufs/move_target_ufs_fw_to_oplusreserve1.sh
 odm/firmware/ufs/ufs_version_config.xml
 
 # Vibrator
-odm/etc/aac_richtap.config
-odm/lib64/libaacvibrator.so:vendor/lib64/libaacvibrator.so
+odm/etc/lra_model_0.conf
+odm/etc/wave_lib/F_MMAP.txt
+odm/etc/wave_lib/F0/WAVE_MMAP.txt
+odm/etc/wave_lib/F0/wave_he_short_f0_162_0.bin
+odm/etc/wave_lib/F0/wave_he_short_f0_162_1.bin
+odm/etc/wave_lib/F0/wave_he_short_f0_162_2.bin
+odm/etc/wave_lib/F0/wave_he_short_f0_162_3.bin
+odm/etc/wave_lib/F0/wave_he_short_f0_162_4.bin
+odm/etc/wave_lib/F1/WAVE_MMAP.txt
+odm/etc/wave_lib/F1/wave_he_short_f0_166_0.bin
+odm/etc/wave_lib/F1/wave_he_short_f0_166_1.bin
+odm/etc/wave_lib/F1/wave_he_short_f0_166_2.bin
+odm/etc/wave_lib/F1/wave_he_short_f0_166_3.bin
+odm/etc/wave_lib/F1/wave_he_short_f0_166_4.bin
+odm/etc/wave_lib/F2/WAVE_MMAP.txt
+odm/etc/wave_lib/F2/wave_he_short_f0_170_0.bin
+odm/etc/wave_lib/F2/wave_he_short_f0_170_1.bin
+odm/etc/wave_lib/F2/wave_he_short_f0_170_2.bin
+odm/etc/wave_lib/F2/wave_he_short_f0_170_3.bin
+odm/etc/wave_lib/F2/wave_he_short_f0_170_4.bin
+odm/etc/wave_lib/F3/WAVE_MMAP.txt
+odm/etc/wave_lib/F3/wave_he_short_f0_174_0.bin
+odm/etc/wave_lib/F3/wave_he_short_f0_174_1.bin
+odm/etc/wave_lib/F3/wave_he_short_f0_174_2.bin
+odm/etc/wave_lib/F3/wave_he_short_f0_174_3.bin
+odm/etc/wave_lib/F3/wave_he_short_f0_174_4.bin
+odm/etc/wave_lib/F4/WAVE_MMAP.txt
+odm/etc/wave_lib/F4/wave_he_short_f0_178_0.bin
+odm/etc/wave_lib/F4/wave_he_short_f0_178_1.bin
+odm/etc/wave_lib/F4/wave_he_short_f0_178_2.bin
+odm/etc/wave_lib/F4/wave_he_short_f0_178_3.bin
+odm/etc/wave_lib/F4/wave_he_short_f0_178_4.bin
+odm/lib64/libsivibrator.so:vendor/lib64/libsivibrator.so
 
 # Vibrator firmware
 odm/firmware/aw8697_haptic.bin
