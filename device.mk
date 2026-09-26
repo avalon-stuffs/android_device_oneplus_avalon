@@ -68,8 +68,6 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,OPLUS_LINEAGE_VIBRATOR_HAL,LIVETAP_F0_CFLAG,-DLIVETAP_DEFAULT_F0=170)
 
-$(call soong_config_set_bool,OPLUS_LINEAGE_VIBRATOR_HAL,USES_OPLUS_AWINIC,true)
-
 # WiFi firmware symlinks
 PRODUCT_PACKAGES += \
     firmware_wlan_mac.bin_symlink \
