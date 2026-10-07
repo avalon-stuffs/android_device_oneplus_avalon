@@ -1732,6 +1732,9 @@ vendor/gpu/kbc/sequence_manifest.bin
 vendor/gpu/kbc/unified_kbcs_64.bin
 vendor/gpu/kbc/unified_ksqs.bin
 
+# Horae from CPH2573_16.0.9.400(EX01)
+odm/etc/horae/horae_target.conf|4dfa67e7364a741d38902d45b0aa5655a3479f54
+
 # Media configs
 odm/etc/camera/media_profiles.xml:vendor/etc/media_profiles_cliffs_v1.xml;TRYSRCFIRST
 
