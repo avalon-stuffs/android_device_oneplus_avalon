@@ -43,13 +43,37 @@ lib_fixups: lib_fixups_user_type = {
 
 blob_fixups: blob_fixups_user_type = {
     'odm/etc/camera/CameraHWConfiguration.config': blob_fixup()
-        # Disable face detection AE behaviour
-        .regex_replace(r'(enableSWfdForThirdCamUnit += )TRUE', r'\1FALSE')
-        .regex_replace(r'(fdSupport += )TRUE;', r'\1FALSE;')
         # Expose AUX cameras
         .regex_replace('SystemCamera =  0;  0;  0;  0;  1;', 'SystemCamera =  0;  0;  0;  0;  0;'),
-    'odm/lib64/libSuperRaw.so': blob_fixup()
+    'odm/lib64/libAlgoProcess.so': blob_fixup()
+        .replace_needed('android.hardware.graphics.common-V3-ndk.so', 'android.hardware.graphics.common-V7-ndk.so')
+        .replace_needed('android.hardware.graphics.common-V4-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
+    (
+        'odm/lib64/libCOppLceTonemapAPI.so',
+        'odm/lib64/libSuperRaw.so',
+        'odm/lib64/libYTCommon.so',
+        'odm/lib64/libyuv2.so',
+    ): blob_fixup()
         .replace_needed('libstdc++.so', 'libstdc++_vendor.so'),
+    (
+        'odm/lib64/libHIS.so',
+        'odm/lib64/libOGLManager.so',
+        'odm/lib64/libOPAlgoCamAiBeautyFaceRetouchCn.so',
+        'odm/lib64/libOPAlgoCamFaceBeautyCap.so',
+    ): blob_fixup()
+        .clear_symbol_version('AHardwareBuffer_acquire')
+        .clear_symbol_version('AHardwareBuffer_allocate')
+        .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_lock')
+        .clear_symbol_version('AHardwareBuffer_lockPlanes')
+        .clear_symbol_version('AHardwareBuffer_release')
+        .clear_symbol_version('AHardwareBuffer_unlock'),
+    'odm/lib64/libarcsoft_high_dynamic_range_v4.so': blob_fixup()
+        .clear_symbol_version('remote_handle_close')
+        .clear_symbol_version('remote_handle_invoke')
+        .clear_symbol_version('remote_handle_open')
+        .clear_symbol_version('remote_register_buf')
+        .clear_symbol_version('remote_register_buf_attr'),
     (
         'odm/lib64/libdisplaycolorfeature.so',
         'odm/lib64/libdisplayfossfeature_nature.so',
@@ -57,15 +81,6 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libsnapdragoncolor-manager.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
-    (
-        'odm/lib64/libHIS.so',
-        'odm/lib64/libOGLManager.so',
-    ): blob_fixup()
-        .clear_symbol_version('AHardwareBuffer_allocate')
-        .clear_symbol_version('AHardwareBuffer_describe')
-        .clear_symbol_version('AHardwareBuffer_lock')
-        .clear_symbol_version('AHardwareBuffer_release')
-        .clear_symbol_version('AHardwareBuffer_unlock'),
     'vendor/etc/libnfc-nci.conf': blob_fixup()
         .regex_replace('NFC_DEBUG_ENABLED=1', 'NFC_DEBUG_ENABLED=0'),
     'vendor/etc/libnfc-nxp.conf': blob_fixup()

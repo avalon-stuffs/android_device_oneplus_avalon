@@ -42,6 +42,9 @@ $(call soong_config_set_bool,OPLUS_LINEAGE_LIVEDISPLAY_HAL,ENABLE_SE,false)
 # OplusParts
 $(call inherit-product, packages/apps/OplusParts/oplusparts.mk)
 
+# OPlus Camera
+$(call inherit-product-if-exists, vendor/oplus/camera/avalon/opluscamera.mk)
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-custom
