@@ -1854,17 +1854,8 @@ odm/firmware/ufs/SKhynix-HN8T274EJKX130.bin
 odm/firmware/ufs/move_target_ufs_fw_to_oplusreserve1.sh
 odm/firmware/ufs/ufs_version_config.xml
 
-# Vibrator
-odm/etc/aac_richtap.config
-odm/lib64/libaacvibrator.so:vendor/lib64/libaacvibrator.so
-
 # Vibrator firmware
-odm/firmware/aw8697_haptic.bin
-odm/firmware/aw8697_haptic_170.bin
-odm/firmware/aw8697_haptic_170_soft.bin
-odm/firmware/aw8697_haptic_235.bin
-odm/firmware/aw8697_haptic_235_19161.bin
-odm/firmware/aw8697_rtp.bin
+odm/firmware/aw8697_haptic.bin:odm/firmware/haptic_ram.bin
 
 # VPU firmware
 vendor/firmware/vpu20_2v.mbn
