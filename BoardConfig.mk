@@ -20,6 +20,9 @@ TARGET_SCREEN_DENSITY := 530
 # Kernel
 TARGET_KERNEL_ADDITIONAL_FLAGS += CONFIG_AVALON_DTB=y
 
+# Kernel modules
+TARGET_KERNEL_EXT_MODULES := awinic
+
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/properties/odm.prop
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/properties/system_ext.prop
