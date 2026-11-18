@@ -1,0 +1,7 @@
+service vendor.qti.vibrator /vendor/bin/hw/vendor.qti.hardware.vibrator.service.avalon
+    class hal
+    user system
+    group system input
+
+on property:sys.boot_completed=1
+    setprop vendor.haptic.calibrate.done 1
