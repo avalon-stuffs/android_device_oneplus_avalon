@@ -43,7 +43,20 @@ lib_fixups: lib_fixups_user_type = {
 blob_fixups: blob_fixups_user_type = {
     'odm/etc/camera/CameraHWConfiguration.config': blob_fixup()
         # Expose AUX cameras
-        .regex_replace('SystemCamera =  0;  0;  0;  0;  1;', 'SystemCamera =  0;  0;  0;  0;  0;'),
+        .regex_replace('SystemCamera =  0;  0;  0;  0;  1;', 'SystemCamera =  0;  0;  0;  0;  0;')
+        # Fix TeleCameraId comment breaking parser
+        .regex_replace(r'TeleCameraId\s*=\s*3;\s*#\s*is 21131 tele id is 3\?', '# is 21131 tele id is 3?\n    TeleCameraId         = 3;')
+        # Enable OIS for portrait 2x
+        .regex_replace('opertionMode       = 0x8011;0x8015;', 'opertionMode       = 0x8011;0x8030;0x8015;')
+        # Enable RealTime pipeline for portrait 2x
+        .regex_replace('CustomSupportUseMonitor      = 0x8011;', 'CustomSupportUseMonitor      = 0x8011;0x8030;'),
+    'odm/etc/camera/CameraOemConfiguration.config': blob_fixup()
+        # Fix tele sensor mask for 2x izoom on dual-camera setup
+        .regex_replace(r'Mode\[3\]     =      0x8030;       0x0010;', 'Mode[3]     =      0x8030;       0x0004;'),
+    'odm/etc/camera/config/camera_unit_config': blob_fixup()
+        # Map half_body to full_body operation mode (8011) to avoid session recreation
+        .regex_replace(r'"half_body":"8030"', '"half_body":"8011"')
+        .regex_replace(r'"com.oplus.rear.portrait.sat.halfbodysize": "3136x2352x1600x1200"', '"com.oplus.rear.portrait.sat.halfbodysize": "4096x3072x1632x1224"'),
     'odm/lib64/libAlgoProcess.so': blob_fixup()
         .replace_needed('android.hardware.graphics.common-V3-ndk.so', 'android.hardware.graphics.common-V7-ndk.so')
         .replace_needed('android.hardware.graphics.common-V4-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
